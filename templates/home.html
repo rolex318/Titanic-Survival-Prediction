@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Titanic Survival Prediction</title>
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <style>
+
+        body{
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-family:Arial, sans-serif;
+        }
+
+        .card{
+            width:550px;
+            border:none;
+            border-radius:15px;
+            box-shadow:0px 0px 20px rgba(0,0,0,0.2);
+        }
+
+        .card-header{
+            background:#0d6efd;
+            color:white;
+            text-align:center;
+            font-size:28px;
+            font-weight:bold;
+            border-radius:15px 15px 0 0 !important;
+            padding:20px;
+        }
+
+        .btn-custom{
+            width:100%;
+            padding:12px;
+            font-size:18px;
+            font-weight:bold;
+        }
+
+        .prediction{
+            text-align:center;
+            margin-top:20px;
+            font-size:24px;
+            font-weight:bold;
+            color:green;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="card-header">
+
+        Titanic Survival Prediction
+
+    </div>
+
+    <div class="card-body">
+
+        <form action="/predict" method="POST">
+
+            <!-- Passenger Class -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Passenger Class
+
+                </label>
+
+                <select class="form-select"
+                        name="Pclass"
+                        required>
+
+                    <option value="">Select Class</option>
+
+                    <option value="1">1st Class</option>
+
+                    <option value="2">2nd Class</option>
+
+                    <option value="3">3rd Class</option>
+
+                </select>
+
+            </div>
+
+            <!-- Gender -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Gender
+
+                </label>
+
+                <select class="form-select"
+                        name="Sex"
+                        required>
+
+                    <option value="">Select Gender</option>
+
+                    <option value="0">Female</option>
+
+                    <option value="1">Male</option>
+
+                </select>
+
+            </div>
+
+            <!-- Age -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Age
+
+                </label>
+
+                <input type="number"
+                       step="any"
+                       class="form-control"
+                       name="Age"
+                       placeholder="Enter Age"
+                       required>
+
+            </div>
+
+            <!-- SibSp -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Siblings / Spouse
+
+                </label>
+
+                <input type="number"
+                       class="form-control"
+                       name="SibSp"
+                       placeholder="Enter Number"
+                       required>
+
+            </div>
+
+            <!-- Parch -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Parents / Children
+
+                </label>
+
+                <input type="number"
+                       class="form-control"
+                       name="Parch"
+                       placeholder="Enter Number"
+                       required>
+
+            </div>
+
+            <!-- Fare -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Fare
+
+                </label>
+
+                <input type="number"
+                       step="any"
+                       class="form-control"
+                       name="Fare"
+                       placeholder="Enter Fare"
+                       required>
+
+            </div>
+
+            <!-- Embarked -->
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Embarked Port
+
+                </label>
+
+                <select class="form-select"
+                        name="Embarked"
+                        required>
+
+                    <option value="">Select Port</option>
+
+                    <option value="0">Cherbourg (C)</option>
+
+                    <option value="1">Queenstown (Q)</option>
+
+                    <option value="2">Southampton (S)</option>
+
+                </select>
+
+            </div>
+
+            <!-- Submit Button -->
+
+            <button type="submit"
+                    class="btn btn-primary btn-custom">
+
+                Predict Survival
+
+            </button>
+
+        </form>
+
+        <!-- Prediction Result -->
+
+        {% if prediction_text %}
+
+        <div class="prediction">
+
+            {{ prediction_text }}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
