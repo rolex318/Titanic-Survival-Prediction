@@ -1,0 +1,323 @@
+# 🚢 Titanic Survival Prediction Using Machine Learning
+
+## 📌 Project Overview
+
+This project predicts whether a passenger would survive the Titanic disaster using Machine Learning. The model is trained on the Titanic dataset and deployed using a Flask web application. Users can enter passenger details through a web interface and receive an instant prediction.
+
+The project follows a complete Machine Learning workflow including data preprocessing, feature engineering, model training, model serialization using Pickle, and deployment with Flask.
+
+---
+
+## 🚀 Features
+
+* Titanic Survival Prediction
+* Machine Learning Model Deployment
+* Flask Web Application
+* Random Forest Classifier
+* Data Preprocessing and Feature Scaling
+* User-Friendly Interface
+* Real-Time Predictions
+
+---
+
+## 🛠️ Technologies Used
+
+* Python
+* Flask
+* Scikit-Learn
+* Pandas
+* NumPy
+* HTML
+* CSS
+* Pickle
+
+---
+
+## 📂 Project Structure
+
+```text
+Titanic-Survival-Prediction/
+│
+├── app.py
+├── train_model.py
+├── requirements.txt
+│
+├── dataset/
+│   └── titanic.csv
+│
+├── models/
+│   ├── model.pkl
+│   └── scaler.pkl
+│
+├── templates/
+│   └── home.html
+│
+├── static/
+│   └── style.css
+│
+└── README.md
+```
+
+---
+
+## 📊 Dataset Information
+
+The Titanic dataset contains information about passengers aboard the RMS Titanic.
+
+### Input Features
+
+| Feature  | Description                       |
+| -------- | --------------------------------- |
+| Pclass   | Passenger Class                   |
+| Sex      | Gender                            |
+| Age      | Passenger Age                     |
+| SibSp    | Number of Siblings/Spouses Aboard |
+| Parch    | Number of Parents/Children Aboard |
+| Fare     | Passenger Fare                    |
+| Embarked | Port of Embarkation               |
+
+### Target Variable
+
+```text
+Survived
+
+0 = Did Not Survive
+1 = Survived
+```
+
+---
+
+## 🔄 Data Preprocessing
+
+The following preprocessing steps were applied:
+
+* Missing Age values replaced with median age.
+* Missing Embarked values replaced with mode.
+* Gender converted into numerical values.
+* Embarked converted into numerical values.
+* StandardScaler used for feature scaling.
+
+### Encoding
+
+#### Sex
+
+```text
+Male = 0
+Female = 1
+```
+
+#### Embarked
+
+```text
+S = 0 (Southampton)
+C = 1 (Cherbourg)
+Q = 2 (Queenstown)
+```
+
+---
+
+## 🤖 Machine Learning Model
+
+### Algorithm Used
+
+Random Forest Classifier
+
+### Why Random Forest?
+
+* High prediction accuracy
+* Handles non-linear relationships
+* Reduces overfitting
+* Robust against noisy data
+* Works well on tabular datasets
+
+### Model Training Process
+
+1. Load Titanic dataset.
+2. Clean missing values.
+3. Encode categorical variables.
+4. Scale numerical features.
+5. Train Random Forest Classifier.
+6. Save trained model and scaler using Pickle.
+
+---
+
+## 💾 Saved Files
+
+After training, the following files are generated:
+
+```text
+models/model.pkl
+models/scaler.pkl
+```
+
+### model.pkl
+
+Stores the trained Random Forest Classifier.
+
+### scaler.pkl
+
+Stores the StandardScaler object used during training.
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/yourusername/Titanic-Survival-Prediction.git
+cd Titanic-Survival-Prediction
+```
+
+### Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Activate Environment
+
+#### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+#### Linux / Mac
+
+```bash
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Train the Model
+
+Run:
+
+```bash
+python train_model.py
+```
+
+This will:
+
+* Load Titanic Dataset
+* Train Random Forest Model
+* Save Scaler
+* Save Model
+
+Output:
+
+```text
+Saved scaler to models/scaler.pkl
+Saved model to models/model.pkl
+```
+
+---
+
+## 🌐 Run Flask Application
+
+Start the Flask server:
+
+```bash
+python app.py
+```
+
+Application URL:
+
+```text
+http://127.0.0.1:5000
+```
+
+Open the URL in your browser.
+
+---
+
+## 🔮 Prediction Workflow
+
+1. User enters passenger details.
+2. Flask receives form data.
+3. Input features are converted into NumPy array.
+4. Data is scaled using StandardScaler.
+5. Random Forest model predicts survival.
+6. Result is displayed on the webpage.
+
+---
+
+## 📝 Sample Input
+
+```text
+Passenger Class : 1
+Gender          : Female
+Age             : 28
+SibSp           : 1
+Parch           : 0
+Fare            : 75
+Embarked        : C
+```
+
+### Prediction Output
+
+```text
+Passenger Survived
+```
+
+---
+
+## 📦 Requirements
+
+```text
+Flask
+Pandas
+NumPy
+Scikit-Learn
+```
+
+Install all dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🔮 Future Enhancements
+
+* Model Accuracy Dashboard
+* Feature Importance Visualization
+* REST API Support
+* Docker Deployment
+* Cloud Deployment (AWS, Azure, Render)
+* User Authentication
+* Multiple Model Comparison
+
+---
+
+## 👨‍💻 Author
+
+### Chinmaya Giri
+
+B.Tech – Computer Science Engineering
+
+Areas of Interest:
+
+* Machine Learning
+* Data Science
+* Artificial Intelligence
+* IoT Development
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+⭐ If you found this project useful, please consider giving it a star on GitHub.
